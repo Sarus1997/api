@@ -18,6 +18,7 @@
      <title>ตรวจสอบสภาพอากาศ</title>
 
      <style>
+
           #map {
                height: 100%;
           }
@@ -33,55 +34,90 @@
 
           #map {
                height: 600px;
-               width: 600px;
+               width: 100%;
                display: block;
                margin-top: auto;
+               margin-bottom: auto;
           }
+
+
+          .container {
+               border-radius: 5px;
+               background-color: #ECECEC;
+               padding: 10px;
+          }
+
+          .thumbnail01 {
+               padding: 50px 70px;
+               color: rgb(53, 52, 52);
+               color: rgb(39, 39, 39);
+               border: 3px;
+
+          }
+
+          .form {
+               display: block;
+               margin-top: 0em;
+
+          }
+
      </style>
 </head>
 
 <body>
 
-     <div class="container pt-3">
+     <div class="container">
+               <div class="thumbnail01">
+                    <div class="form-group">
+                         <div class="row">
 
-          <img src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
-               height="250" width="650" style="border: 2;">
+                              <img src="https://www.timeanddate.com/scripts/weather_og.php?h1=Weather&h2=Local%20Weather%20Around%20the%20World"
+                                   height="250" width="450" style="border: 2;">
 
-          <div class="mb-3 row">
-               <br>
-               <hr>
+                                   <p></p>
+                              <hr>
 
-               <label for="inputlat" class="col-sm-11 col-form-label">
-                    <h1>lat</h1>
-               </label>
-               <div class="col-sm-11">
-                    <input type="text" class="form-control" id="x">
-               </div>
-               <label for="inputlon" class="col-sm-11 col-form-label">
-                    <h1>lng</h1>
-               </label>
-               <div class="col-sm-11">
-                    <input type="text" class="form-control" id="y">
-               </div>
-               <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button" id="btnLoad" class="col-sm-10">Load</button>
-               </div>
-               <div id="map"></div>
+                              <label for="inputlat ">
+                                   <p>***</p>
+                                   <h3>Latitude</h3>
+                              </label>
+                              <div class="col">
+                                   <input type="text" class="form-control" id="x">
+                              </div>
+                              <label for="inputlon">
+                                   <p>***</p>
+                                   <h3>Longitude</h3>
+                              </label>
+                              <div class="col">
+                                   <input type="text" class="form-control" id="y">
+                              </div>
+                              <p></p>
+                                        <hr>
+                              <div class="container d-flex justify-content-center ">
+                                   <button class="btn btn-primary btn-lg d-grid gap-2 " type="button"
+                                        id="btnLoad" button"
+                                        onclick="document.getElementById('demo').innerHTML = Date()"">ค้นหา</button>
+                              </div>
+                              <div id="map"></div>
+                              <center>
+                                   <br>
+                              <p>***</p>
+                              </center>
+                              <hr>
+                              <script>
+                                   var map;
+                                   function initMap(x, y) {
+                                        map = new google.maps.Map(document.getElementById('map'), {
+                                             center: { lat: x, lng: y },
+                                             zoom: 12
+                                        });
+                                   };
 
-               <script>
-                    var map;
-                    function initMap(x, y) {
-                         map = new google.maps.Map(document.getElementById('map'), {
-                              center: { lat: x, lng: y },
-                              zoom: 11
-                         });
-                    };
+                              </script>
 
-               </script>
-
-               <div id="name"></div>
-          </div>
-     </div>
+                              <div id="name"></div>
+                         </div>
+                    </div>
 </body>
 
 <script>
